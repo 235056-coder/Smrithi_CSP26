@@ -6,18 +6,58 @@ import turtle
 wn = turtle.Screen()
 wn.bgcolor("white")
 
-# Define coordinates for a custom shape (e.g., a diamond/star-like polygon)
-# (0, 0) is the center point of your turtle
+# define coordinates for a custom shape
+custom_polygon = ((-6, 11), (6, 11), (6, -4), (0, -11), (-6, -4), (-6, 11))
 
-#Input your own coordinates here
-custom_polygon = (((-6, 11), (6, 11), (6, -4), (0, -11), 
-                  (-6, -4), (-6, 11)))
-
-# Register the new custom shape and name it "mystar"
+# register the new custom shape and name it "pencil"
 wn.register_shape("pencil", custom_polygon)
 
-# Create your turtle and apply the shape
-my_turtle = turtle.Turtle()
-my_turtle.shape("pencil")
-my_turtle.color("black")
-my_turtle.fillcolor("khaki1")
+# create your turtle and apply the shape (named 'pencil' to match your drawing commands)
+pencil = turtle.Turtle()
+pencil.shape("pencil")
+pencil.color("black")
+pencil.fillcolor("khaki1")
+
+# Welcome the user and ask them what they want to draw 
+answer = turtle.textinput("Welcome to the digital coloring book, what would you like to color!", "mushroom(m) or flower(f) or tree(t)")
+
+if answer == "m":
+    # Add code for creating a mushroom and its user inputs
+ 
+    pencil.penup()
+    pencil.goto(-500, -200)
+    pencil.setheading(0)
+    pencil.pendown()  
+    ground = turtle.textinput("Ground Color", "Choose the color of the ground (OliveDrab4, bisque4):")
+    
+    # draw the rectangle for the ground
+    if ground: 
+        pencil.fillcolor(ground)  
+        pencil.begin_fill()
+        pencil.forward(1000)   
+        pencil.right(90)      
+        pencil.forward(200)   
+        pencil.right(90)      
+        pencil.forward(1000)  
+        pencil.right(90)      
+        pencil.forward(200)   
+        pencil.end_fill()
+
+    # draw the sky for the backround
+    
+
+    
+
+    
+wn.mainloop()
+
+
+ 
+
+"""
+if answer == "f":
+  #add code for flower and its user input
+
+if answer == "t":
+  #add code for the tree and its user input
+"""
