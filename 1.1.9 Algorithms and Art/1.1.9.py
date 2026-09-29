@@ -17,6 +17,7 @@ pencil = turtle.Turtle()
 pencil.shape("pencil")
 pencil.color("black")
 pencil.fillcolor("khaki1")
+pencil.speed(2)
 
 # Welcome the user and ask them what they want to draw 
 answer = turtle.textinput("Welcome to the digital coloring book, what would you like to color!", "mushroom(m) or flower(f) or tree(t)")
@@ -44,6 +45,22 @@ if answer == "m":
         pencil.end_fill()
 
     # draw the sky for the backround
+    sky_color = turtle.textinput("Sky Color", "Choose the sky color (LightBlue2, SteelBlue4):")
+    if sky_color:
+        pencil.penup()
+        pencil.goto(-500, -200) 
+        pencil.setheading(0)   
+        pencil.pendown()
+        pencil.fillcolor(sky_color)
+        pencil.begin_fill()
+        pencil.forward(1000)   
+        pencil.left(90)        
+        pencil.forward(600)     
+        pencil.left(90)        
+        pencil.forward(1000)   
+        pencil.left(90)         
+        pencil.forward(600)     
+        pencil.end_fill()
     
 
     
