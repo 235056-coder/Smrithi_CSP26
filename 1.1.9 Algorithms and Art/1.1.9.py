@@ -206,7 +206,27 @@ while (answer != "q"):
      pencil.setheading(90)
      pencil.goto(0, -60)
      #draw the petals and this part requires user input
-    
+     # change pen
+     pencil.penup()
+     pencil.shape("circle")
+     pencil.turtlesize(3.5)
+     petal_colors=["plum1", "MediumPurple1"]
+     petal = "a"
+     while(petal != "p" and petal != "m"):
+      petal = turtle.textinput("Ground Color", "Choose the color of the petal (pink(p), purple(m):").lower()
+     if petal=="p":
+        petal_color = petal_colors[0]
+     else:  
+        petal_color = petal_colors[1]
+        
+     pencil.color("petal_color")
+     pencil.goto(-70,40)
+
+     for petal in range(13):
+      pencil.right(30)
+      pencil.forward(40)
+      pencil.stamp()
+      #the yellow part in the middle
   
  
   if answer == "t":
