@@ -17,7 +17,7 @@ pencil = turtle.Turtle()
 pencil.shape("pencil")
 pencil.color("black")
 pencil.fillcolor("khaki1")
-pencil.speed(1)
+pencil.speed(0)
 
 # Welcome the user and ask them what they want to draw 
 answer = turtle.textinput("Welcome to the digital coloring book, what would you like to color!", "mushroom(m) or flower(f) or tree(t)")
@@ -61,6 +61,24 @@ if answer == "m":
         pencil.left(90)         
         pencil.forward(600)     
         pencil.end_fill()
+    # draw the mushroom stem
+        pencil.penup()
+        pencil.goto(-30, -200)      
+        pencil.setheading(0)        
+        pencil.pendown()
+        pencil.fillcolor("darksalmon")
+        pencil.begin_fill()
+        pencil.forward(70)         
+        pencil.left(90)
+        pencil.forward(130)         
+        pencil.left(90)
+        pencil.forward(70)
+        pencil.left(90)
+        pencil.forward(130)
+        pencil.end_fill()
+      #draw the mushroom top
+
+      
     
 
     
