@@ -23,6 +23,7 @@ answer = "m"
 # Welcome the user and ask them what they want to draw 
 while (answer != "q"):
   answer = turtle.textinput("Welcome to the digital coloring book, what would you like to color!", "mushroom(m) or flower(f) or tree(t)")
+  """
   ###########MUSHROOM####################
   if answer == "m":
     # Add code for creating a mushroom and its user inputs
@@ -131,22 +132,71 @@ while (answer != "q"):
     pencil.goto(-15,-55)
     pencil.stamp()
   ########## END MUSHROOM #######################
-
-  #ask them if they want to draw again
+"""
   
   
+  ############FLOWER######################################
   if answer == "f":
     #add code for flower and its user input
-    turtle.sleep(1)
+    #color options for the ground 
+     ground_colors=["OliveDrab4", "bisque4"]
+     pencil.penup()
+     pencil.goto(-500, -200)
+     pencil.setheading(0)
+     pencil.pendown()
+     ground = "a"
+     while(ground != "g" and ground != "b"):  
+        ground = turtle.textinput("Ground Color", "Choose the color of the ground (Green(g), Brown(b):").lower()
+      
+      # draw the rectangle for the ground
+     if ground=="g":
+        ground_color = ground_colors[0]
+     else:  
+        ground_color = ground_colors[1]
 
+     pencil.fillcolor(ground_color)  
+     pencil.begin_fill()
+     pencil.forward(1000)   
+     pencil.right(90)      
+     pencil.forward(200)   
+     pencil.right(90)      
+     pencil.forward(1000)  
+     pencil.right(90)      
+     pencil.forward(200)   
+     pencil.end_fill()
 
-    #---- Prompt for Maze 3
+      # draw the sky for the background
+     sky_colors = ["LightBlue2", "SteelBlue4"]
+     sky = "a"
+     while sky != "l" and sky != "s":
+        sky = turtle.textinput("Sky Color", "Choose the sky color (Light Blue(l), Steel Blue(s)):").lower()
+      # draw the big rectangle for the sky 
+     if sky == "l":
+          sky_color = sky_colors[0]
+     else:
+          sky_color = sky_colors[1]
+
+     pencil.penup()
+     pencil.goto(-500, -200) 
+     pencil.setheading(0)   
+     pencil.pendown()
+     pencil.fillcolor(sky_color)
+     pencil.begin_fill()
+     pencil.forward(1000)   
+     pencil.left(90)        
+     pencil.forward(600)     
+     pencil.left(90)        
+     pencil.forward(1000)   
+     pencil.left(90)         
+     pencil.forward(600)     
+     pencil.end_fill()
+    
   
  
   if answer == "t":
       turtle.sleep(1)
       #add code for the tree and its user input
-      #
+      
   
   else:
     answer = turtle.textinput("Do you want to color again?","Quit(q) or Continue(c)")
