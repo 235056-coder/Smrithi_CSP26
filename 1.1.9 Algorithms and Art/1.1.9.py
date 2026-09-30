@@ -17,7 +17,7 @@ pencil = turtle.Turtle()
 pencil.shape("pencil")
 pencil.color("black")
 pencil.fillcolor("khaki1")
-pencil.speed(2)
+pencil.speed(1)
 
 # Welcome the user and ask them what they want to draw 
 answer = turtle.textinput("Welcome to the digital coloring book, what would you like to color!", "mushroom(m) or flower(f) or tree(t)")
