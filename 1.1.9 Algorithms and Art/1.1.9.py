@@ -61,6 +61,7 @@ if answer == "m":
         pencil.left(90)         
         pencil.forward(600)     
         pencil.end_fill()
+      
     # draw the mushroom stem
         pencil.penup()
         pencil.goto(-30, -200)      
@@ -77,12 +78,39 @@ if answer == "m":
         pencil.forward(130)
         pencil.end_fill()
       #draw the mushroom top
+    top_color = turtle.textinput("Top Color", "Choose the color of the cap (brown3, darkorchid4):")
+    if top_color:
+        pencil.penup()
+        pencil.goto(117, -80)        
+        pencil.setheading(90)      
+        pencil.pendown()
+        pencil.fillcolor(top_color) 
+        pencil.begin_fill()
+        pencil.circle(120, 180)   
+        pencil.goto(117, -80)           
+        pencil.end_fill()
+      #add teh white dots in the mushroom
+      #use a circle turtle and stamp it
+        pencil.penup()
+        pencil.shape("circle")     
+        pencil.color("white")       
+        pencil.shapesize(1.5)       
+        pencil.goto(-60,-20)
+        pencil.stamp()
+        pencil.goto(90,-60)
+        pencil.stamp()
+        pencil.goto(40,-15)
+        pencil.stamp()
+        pencil.goto(5,2)
+        pencil.stamp()
+        pencil.goto(-80,-55)
+        pencil.stamp()
+        pencil.goto(-15,-55)
+        pencil.stamp()
+        
+       
 
-      
-    
-
-    
-
+     
     
 wn.mainloop()
 
