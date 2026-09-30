@@ -17,7 +17,7 @@ pencil = turtle.Turtle()
 pencil.shape("pencil")
 pencil.color("black")
 pencil.fillcolor("khaki1")
-pencil.speed(0)
+pencil.speed(2)
 answer = "m"
 
 # Welcome the user and ask them what they want to draw 
@@ -190,6 +190,22 @@ while (answer != "q"):
      pencil.left(90)         
      pencil.forward(600)     
      pencil.end_fill()
+
+     #actually creating the parts of the flower
+     # stem
+     pencil.color("chartreuse4")
+     pencil.pensize(30)
+     pencil.penup()
+     pencil.goto(0, -230)
+     pencil.pendown()
+     pencil.setheading(90)
+     pencil.forward(200)
+     #  leaf
+     pencil.setheading(270)
+     pencil.circle(20, 120, 20)
+     pencil.setheading(90)
+     pencil.goto(0, -60)
+     #draw the petals and this part requires user input
     
   
  
