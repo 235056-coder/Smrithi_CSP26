@@ -16,7 +16,7 @@ pencil = turtle.Turtle()
 pencil.shape("pencil")
 pencil.color("black")
 pencil.fillcolor("khaki1")
-pencil.speed(0)
+pencil.speed(3)
 answer = "m"
 
 # Welcome the user and ask them what they want to draw 
