@@ -291,7 +291,10 @@ while (answer != "q"):
         pencil.left(90)         
         pencil.forward(600)     
         pencil.end_fill()
-        #create a tree trunk
+
+       
+
+        # create a tree trunk
         pencil.penup()
         pencil.goto(-50, -200)      
         pencil.setheading(0)        
@@ -307,18 +310,60 @@ while (answer != "q"):
         pencil.forward(220)
         pencil.end_fill()
 
-  
+         # Ask user for tree type (Normal or Apple)
+        tree_type =["n", "a"]
+        while tree_type != "n" and tree_type != "a":
+         tree_type = turtle.textinput("Tree Type", "Do you want a Normal tree (n) or Apple tree (a)?").lower()
 
+        # make leaves (runs for both normal and apple trees)
+        pencil.penup()
+        pencil.goto(-60, 20)
+        pencil.pencolor("green")
+        pencil.fillcolor("green")
+        pencil.pendown()
+        pencil.begin_fill()
+        pencil.circle(80)
+        pencil.end_fill()
+        pencil.penup()
+        pencil.goto(0, 30)
+        pencil.pendown()
+        pencil.begin_fill()
+        pencil.circle(80)
+        pencil.end_fill()
+        pencil.penup()
+        pencil.goto(-120, 30)
+        pencil.pendown()
+        pencil.begin_fill()
+        pencil.circle(80)
+        pencil.end_fill()
+        pencil.penup()
+        pencil.goto(-60, 100)
+        pencil.pendown()
+        pencil.begin_fill()
+        pencil.circle(80)
+        pencil.end_fill()
 
-
-
-
-
-
-
-
-
-
+        # ff user picked apple tree draw teh red circles in the leaves
+        if tree_type == "a":
+            pencil.penup()
+            pencil.shape("circle")     
+            pencil.color("red")       
+            pencil.shapesize(1.5)       
+            pencil.goto(-60,80)
+            pencil.stamp()
+            pencil.goto(95,20)
+            pencil.stamp()
+            pencil.goto(40,5)
+            pencil.stamp()
+            pencil.goto(5,122)
+            pencil.stamp()
+            pencil.goto(45,87)
+            pencil.stamp()
+            pencil.goto(-80,15)
+            pencil.stamp()
+            pencil.goto(-15,25)
+            pencil.stamp()
+            
 else:
   answer = turtle.textinput("Do you want to color again?","Quit(q) or Continue(c)")
   answer = turtle.textinput("Do you want to color again?","Quit(q) or Continue(c)")  
