@@ -16,7 +16,7 @@ pencil = turtle.Turtle()
 pencil.shape("pencil")
 pencil.color("black")
 pencil.fillcolor("khaki1")
-pencil.speed(3)
+pencil.speed(0)
 answer = "m"
 
 # Welcome the user and ask them what they want to draw 
@@ -365,7 +365,7 @@ while (answer != "q"):
           pencil.goto(-15,25)
           pencil.stamp()
   answer = turtle.textinput("Do you want to color again?","Quit(q) or Continue(c)")        
-          
+      
 else:
   answer = turtle.textinput("Do you want to color again?","Quit(q) or Continue(c)")  
 wn.bye()
