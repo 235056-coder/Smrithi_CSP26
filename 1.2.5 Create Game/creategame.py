@@ -2,6 +2,21 @@
 # creategame.py
 #####################################################################
 
+#-----import statements-----
+
+
+#-----game configuration----
+
+
+#-----initialize turtle-----
+
+
+#-----game functions--------
+
+
+#-----events----------------
+
+
 
 #import the turtle
 #import rand
