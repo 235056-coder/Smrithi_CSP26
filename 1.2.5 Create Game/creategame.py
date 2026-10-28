@@ -20,9 +20,11 @@ wn.addshape(apple_image)
 
 apple = trtl.Turtle()
 apple.shape(apple_image)
+apple.hideturtle()
 apple.penup()
 apple.goto (-300,100)
 apple.pendown()
+apple.showturtle()
 
 
 
@@ -33,13 +35,7 @@ apple.pendown()
 wn.mainloop()
 
 
-#import the turtle
-#import rand
-
 #username entry
-#import the apple gif
-#import screena and placement of the apple 
-#import backround image of teh apple tree and scene
 #create list of letters upper and lower (avoid.lower)
 #initialize
 #draw the letter on the apple
