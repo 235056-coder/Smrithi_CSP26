@@ -12,6 +12,11 @@ screen_height = 785
 background_image = "appletree.gif"
 apple_image = "applesingle.gif"
 
+
+letter_list = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+current_letter = ""
+letter_font = ("Courier New", 30, "bold")
+
 #-----initialize turtle-----
 wn = trtl.Screen()
 wn.setup(width=screen_width, height=screen_height)
