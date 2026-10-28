@@ -7,8 +7,8 @@ import turtle as trtl
 
 
 #-----game configuration----
-screen_width = 400
-screen_height = 400
+screen_width = 765
+screen_height = 785
 background_image = "appletree.gif"
 
 #-----initialize turtle-----
@@ -19,7 +19,7 @@ wn.setup(width=screen_width, height=screen_height)
 wn.bgpic(background_image)
 
 #-----events----------------
-wn.mainloop
+wn.mainloop()
 
 
 #import the turtle
