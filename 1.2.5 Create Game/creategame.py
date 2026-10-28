@@ -21,7 +21,7 @@ wn.addshape(apple_image)
 apple = trtl.Turtle()
 apple.shape(apple_image)
 apple.penup()
-apple.goto (-400,0)
+apple.goto (-300,100)
 apple.pendown()
 
 
