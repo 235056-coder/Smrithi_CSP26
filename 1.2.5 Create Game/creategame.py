@@ -3,19 +3,23 @@
 #####################################################################
 
 #-----import statements-----
+import turtle as trtl
 
 
 #-----game configuration----
-
+screen_width = 400
+screen_height = 400
+background_image = "appletree.gif"
 
 #-----initialize turtle-----
 
-
 #-----game functions--------
-
+wn = trtl.Screen()
+wn.setup(width=screen_width, height=screen_height)
+wn.bgpic(background_image)
 
 #-----events----------------
-
+wn.mainloop
 
 
 #import the turtle
