@@ -10,13 +10,24 @@ import turtle as trtl
 screen_width = 765
 screen_height = 785
 background_image = "appletree.gif"
+apple_image = "applesingle.gif"
 
 #-----initialize turtle-----
-
-#-----game functions--------
 wn = trtl.Screen()
 wn.setup(width=screen_width, height=screen_height)
 wn.bgpic(background_image)
+wn.addshape(apple_image)
+
+apple = trtl.Turtle()
+apple.shape(apple_image)
+apple.penup()
+apple.goto (-400,0)
+apple.pendown()
+
+
+
+#-----game functions--------
+
 
 #-----events----------------
 wn.mainloop()
