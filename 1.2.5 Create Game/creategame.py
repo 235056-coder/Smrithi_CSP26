@@ -27,6 +27,7 @@ wn.addshape(apple_image)
 wn.bgpic(background_image)
 wn.tracer(False)
 
+
 #list of letters
 letter_list = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
 
@@ -43,16 +44,16 @@ def draw_letter(apple, letter):
     apple.setpos(apple.xcor() + apple_letter_x_offset, apple.ycor() + apple_letter_y_offset)
     apple.write(letter, font=("Courier New", 40, "bold"))
     apple.setpos(remember_position)
-    
-def draw_apple(active_apple, letter):
+
+def draw_apple(apple, letter):
     """Displays the apple turtle and draws the current letter."""
-    active_apple.shape(apple_image)
-    active_apple.showturtle()
-    draw_letter(active_apple, letter)
+    apple.shape(apple_image)
+    apple.showturtle()
+    draw_letter(apple, letter)
     wn.update()
 
 # --- Key Bindings & Initialization ---
 
 # Start the game
-
+wn.listen()
 trtl.mainloop()
