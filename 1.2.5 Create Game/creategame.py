@@ -45,7 +45,7 @@ def draw_letter(apple, letter):
     apple.ycor() + apple_letter_y_offset)
 
     
-    apple.write(letter, font=("Courier New", 40, "bold"))
+    apple.write(letter, font=("Courier New", 60, "bold"))
     apple.setpos(remember_position)
 
 def draw_apple(apple, letter):
