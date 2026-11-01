@@ -32,17 +32,17 @@ wn.tracer(False)
 letter_list = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
 
 #initialize the turtle
-apple_image = trtl.Turtle()
-apple_image.penup()
+apple = trtl.Turtle()
+apple.penup()
 current_letter = ""
 
 # --- Game Functions ---
 def draw_letter(apple, letter):
     """Draws the letter text over the apple."""
     apple.color("white")
-    remember_position = apple.position(
+    remember_position = apple.position()
     apple.setpos(apple.xcor() + apple_letter_x_offset, 
-    apple.ycor() + apple_letter_y_offset))
+    apple.ycor() + apple_letter_y_offset)
 
     
     apple.write(letter, font=("Courier New", 40, "bold"))
@@ -73,5 +73,6 @@ def reset_apple(apple):
 # --- Key Bindings & Initialization ---
 
 # Start the game
+reset_apple(apple)
 wn.listen()
 trtl.mainloop()
