@@ -12,7 +12,7 @@ screen_width = 765
 screen_height = 785
 #importing the images for the game
 background_image = "appletree.gif"
-apple_image = "apple100.gif"
+apple_image = "apple1.gif"
 #how far the apple can fall to get the the position I want it to
 ground_height = -400
 #where the letter will be drawn on the apple picture
@@ -32,8 +32,8 @@ wn.tracer(False)
 letter_list = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
 
 #initialize the turtle
-apple = trtl.Turtle()
-apple.penup()
+apple_image = trtl.Turtle()
+apple_image.penup()
 current_letter = ""
 
 # --- Game Functions ---
@@ -63,6 +63,12 @@ def reset_apple(apple):
         index = rand.randrange(len(letter_list))
         #when a letter is picked, pop it so that a its not repeated (could maybe change this if players cycle through all teh letters fast enough)
         current_letter = letter_list.pop(index)
+
+        #change the spot of the apple(somewhere random ON THE TREE)
+    x_pos = rand.randint(-370,150)
+    y_pos = rand.randint(-140,380)
+    apple.goto(x_pos, y_pos)
+    draw_apple(apple, current_letter)
 
 # --- Key Bindings & Initialization ---
 
