@@ -40,8 +40,11 @@ current_letter = ""
 def draw_letter(apple, letter):
     """Draws the letter text over the apple."""
     apple.color("white")
-    remember_position = apple.position()
-    apple.setpos(apple.xcor() + apple_letter_x_offset, apple.ycor() + apple_letter_y_offset)
+    remember_position = apple.position(
+    apple.setpos(apple.xcor() + apple_letter_x_offset, 
+    apple.ycor() + apple_letter_y_offset))
+
+    
     apple.write(letter, font=("Courier New", 40, "bold"))
     apple.setpos(remember_position)
 
