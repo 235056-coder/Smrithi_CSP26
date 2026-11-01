@@ -14,10 +14,10 @@ screen_height = 785
 background_image = "appletree.gif"
 apple_image = "apple1.gif"
 #how far the apple can fall to get the the position I want it to
-ground_height = -400
+ground_height = -300
 #where the letter will be drawn on the apple picture
-apple_letter_x_offset = -15
-apple_letter_y_offset = -10
+apple_letter_x_offset = -13
+apple_letter_y_offset = -40
 
 #screen set up
 wn = trtl.Screen()
@@ -65,8 +65,8 @@ def reset_apple(apple):
         current_letter = letter_list.pop(index)
 
         #change the spot of the apple(somewhere random ON THE TREE)
-    x_pos = rand.randint(-370,150)
-    y_pos = rand.randint(-140,380)
+    x_pos = rand.randint(-330,110)
+    y_pos = rand.randint(-140,350)
     apple.goto(x_pos, y_pos)
     draw_apple(apple, current_letter)
 
