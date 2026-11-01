@@ -55,6 +55,15 @@ def draw_apple(apple, letter):
     draw_letter(apple, letter)
     wn.update()
 
+def reset_apple(apple):
+    """picks a new random letter from the list and moves the apple to a new spot thats also random"""
+    global current_letter
+    if letter_list:
+        #picka. random letter
+        index = rand.randrange(len(letter_list))
+        #when a letter is picked, pop it so that a its not repeated (could maybe change this if players cycle through all teh letters fast enough)
+        current_letter = letter_list.pop(index)
+
 # --- Key Bindings & Initialization ---
 
 # Start the game
