@@ -79,7 +79,10 @@ def drop_apple():
     wn.tracer(False) #again just turns the animation off so that the apple can reset without the player seeing all the movements
 
 # --- Key Bindings & Initialization ---
+for letter in letter_list:
+    wn.onkeypress(partial(check_letter, letter)) #got rid of the .lower so its now case sensitive.
 
+    
 # Start the game
 reset_apple(apple)
 wn.listen()
