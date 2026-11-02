@@ -120,20 +120,44 @@ def drop_apple():
     wn.tracer(False) #again just turns the animation off so that the apple can reset without the player seeing all the movements
     reset_apple(apple)
     
-
 def check_letter(pressed_letter):
-    """checks if the correct letter was pressed."""
-    if current_letter == pressed_letter:
+    if not timer_up and current_letter == pressed_letter:
+        update_score() #this placement makes it so that the score updates when the right letter is pressed instead of when it drops because that might be more fair for time purpose
         drop_apple()
+
 #def global update the scorehere
+def update_score():
+    global score
+    score += 1 
+    score_writer.clear()
+    score_writer.write("score: " + str(score), font=font_setup) #maybe i shouldnt add this if it doesnt look good. try bth versions and see wat fits better
 
 #def countdown timer here and when the times up, teh screen will clear and the final score will be dispayed with a messagesaying game over, and there should be a button that takes you to the leaderboar(more like a question maybe)
+def countdown():
+    global timer, timer_up
+
+    counter.clear()
+
+    if timer <= 0:
+        counter.write("time's up!", font=font_setup)
+        timer_up = True
+        apple.hideturtle()
+
+    else:
+        counter.write("timer: " + str(timer), font=font_setup)
+        timer -= 1
+        wn.ontimer(countdown, counter_interval)
 #def start game function here that will start the game when the player clicks a button on the title screen, and then the title screen will clear and the game will start
+def start_game():
+    wn.ontimer(countdown, counter_interval) #this hasnt really cleared the screen yet but that can worked on after the basic functionality
+
 # --- Key Bindings & Initialization ---
 for letter in letter_list:
     wn.onkeypress(partial(check_letter, letter), letter) #got rid of the .lower so its now case sensitive.
 
 # Start the game
 reset_apple(apple)
+update_score()
+start_game()
 wn.listen()
 trtl.mainloop()
