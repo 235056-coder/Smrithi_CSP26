@@ -5,6 +5,7 @@
 #-----Import Statements-----
 import turtle as trtl
 import random as rand
+from functools import partial
 
 # --- Configuration & Setup ---
 #size of the screen 
@@ -78,11 +79,17 @@ def drop_apple():
     apple.hideturtle()
     wn.tracer(False) #again just turns the animation off so that the apple can reset without the player seeing all the movements
 
+
+def check_letter(pressed_letter):
+    """checks if the correct letter was pressed."""
+    if current_letter == pressed_letter:
+        drop_apple()
+
+
 # --- Key Bindings & Initialization ---
 for letter in letter_list:
     wn.onkeypress(partial(check_letter, letter)) #got rid of the .lower so its now case sensitive.
 
-    
 # Start the game
 reset_apple(apple)
 wn.listen()
