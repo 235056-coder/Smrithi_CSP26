@@ -70,6 +70,14 @@ def reset_apple(apple):
     apple.goto(x_pos, y_pos)
     draw_apple(apple, current_letter)
 
+def drop_apple():
+    """makes he apple fall and then resets to a new position with a new letter"""
+    wn.tracer(True)#this is turning all the animation back on from the tracer(Flase) from earlier
+    apple.goto(apple.xcor(), ground_height) #might need to play around with this a little more
+    apple.clear()
+    apple.hideturtle()
+    wn.tracer(False) #again just turns the animation off so that the apple can reset without the player seeing all the movements
+
 # --- Key Bindings & Initialization ---
 
 # Start the game
