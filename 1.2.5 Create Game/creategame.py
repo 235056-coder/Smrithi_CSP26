@@ -48,7 +48,7 @@ wn.addshape(apple_image)
 wn.bgpic(background_image)
 #add a timer here 30sec
 score = 0
-font_setup = ("Courier New", 80, "bold")
+font_setup = ("Courier New", 30, "bold", )
 timer = 30
 counter_interval = 1000
 timer_up = False
@@ -67,13 +67,13 @@ current_letter = ""
 score_writer = trtl.Turtle()
 score_writer.hideturtle()
 score_writer.penup()
-score_writer.goto(-340, 340)
+score_writer.goto(-350, 330)
 
 #counter goes here
 counter = trtl.Turtle()
 counter.hideturtle()
 counter.penup()
-counter.goto(250, 340)
+counter.goto(200, 330)
 
 # --- Game Functions ---
 def draw_letter(apple, letter):
