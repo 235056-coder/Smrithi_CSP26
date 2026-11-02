@@ -46,7 +46,11 @@ wn.title ("Drop'em Apples")
 wn.setup(width=screen_width, height=screen_height)
 wn.addshape(apple_image)
 wn.bgpic(background_image)
+#add a timer here 30sec
+
+
 wn.tracer(False)
+
 
 
 #list of letters
@@ -57,6 +61,9 @@ apple = trtl.Turtle()
 apple.speed(6)
 apple.penup()
 current_letter = ""
+
+#have a score writr with the same text setteings as teh apple
+#counter goes here
 
 # --- Game Functions ---
 def draw_letter(apple, letter):
@@ -97,16 +104,21 @@ def drop_apple():
     wn.tracer(True)#this is turning all the animation back on from the tracer(Flase) from earlier
     apple.goto(apple.xcor(), ground_height) #might need to play around with this a little more
     apple.clear()
+    #add mmore code here to update the score when the apple is dropped
+
     apple.hideturtle()
     wn.tracer(False) #again just turns the animation off so that the apple can reset without the player seeing all the movements
     reset_apple(apple)
+    
 
 def check_letter(pressed_letter):
     """checks if the correct letter was pressed."""
     if current_letter == pressed_letter:
         drop_apple()
+#def global update the scorehere
 
-
+#def countdown timer here and when the times up, teh screen will clear and the final score will be dispayed with a messagesaying game over, and there should be a button that takes you to the leaderboar(more like a question maybe)
+#def start game function here that will start the game when the player clicks a button on the title screen, and then the title screen will clear and the game will start
 # --- Key Bindings & Initialization ---
 for letter in letter_list:
     wn.onkeypress(partial(check_letter, letter), letter) #got rid of the .lower so its now case sensitive.
