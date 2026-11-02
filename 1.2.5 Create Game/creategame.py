@@ -30,6 +30,7 @@ wn.title ("Drop'em Apples")
 wn.setup(width=screen_width, height=screen_height)
 wn.addshape(apple_image)
 wn.bgpic(startscreen_image)
+wn.update()
 
 #user puts in their name
 player_name = trtl.textinput("Name", "Enter your name")
@@ -37,11 +38,9 @@ player_name = trtl.textinput("Name", "Enter your name")
 while "," in player_name or len(player_name)==0 or len(player_name)>12:
  player_name = trtl.textinput ("Name", "Please do not use a comma, Enter your name")
 
-#the screen will stay for 10 more seconds befor the game starts
-wn.update()
-trtl.delay(30000)
 
 #screen set up for the ACTUAL game
+wn.reset()
 wn = trtl.Screen()
 wn.title ("Drop'em Apples")
 wn.setup(width=screen_width, height=screen_height)
