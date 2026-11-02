@@ -14,13 +14,34 @@ screen_height = 785
 #importing the images for the game
 background_image = "appletree.gif"
 apple_image = "apple1.gif"
+
+#import a new image just for the title screen 
+startscreen_image = "titlescreen.gif"
+
 #how far the apple can fall to get the the position I want it to
 ground_height = -300
 #where the letter will be drawn on the apple picture
 apple_letter_x_offset = -13
 apple_letter_y_offset = -40
 
-#screen set up
+#before they enter their name the title screen will be displayed for 3 seconds before the game starts and then the title screen will be cleared and the game will start
+wn = trtl.Screen()
+wn.title ("Drop'em Apples")
+wn.setup(width=screen_width, height=screen_height)
+wn.addshape(apple_image)
+wn.bgpic(startscreen_image)
+
+#user puts in their name
+player_name = trtl.textinput("Name", "Enter your name")
+
+while "," in player_name or len(player_name)==0 or len(player_name)>12:
+ player_name = trtl.textinput ("Name", "Please do not use a comma, Enter your name")
+
+#the screen will stay for 10 more seconds befor the game starts
+wn.update()
+trtl.delay(30000)
+
+#screen set up for the ACTUAL game
 wn = trtl.Screen()
 wn.title ("Drop'em Apples")
 wn.setup(width=screen_width, height=screen_height)
