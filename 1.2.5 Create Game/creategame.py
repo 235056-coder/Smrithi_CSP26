@@ -34,6 +34,7 @@ letter_list = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
 
 #initialize the turtle
 apple = trtl.Turtle()
+apple.speed(6)
 apple.penup()
 current_letter = ""
 
@@ -66,7 +67,7 @@ def reset_apple(apple):
         current_letter = letter_list.pop(index)
 
         #change the spot of the apple(somewhere random ON THE TREE)
-    x_pos = rand.randint(-330,110)
+    x_pos = rand.randint(-270,80)
     y_pos = rand.randint(-140,350)
     apple.goto(x_pos, y_pos)
     draw_apple(apple, current_letter)
@@ -78,7 +79,7 @@ def drop_apple():
     apple.clear()
     apple.hideturtle()
     wn.tracer(False) #again just turns the animation off so that the apple can reset without the player seeing all the movements
-
+    reset_apple(apple)
 
 def check_letter(pressed_letter):
     """checks if the correct letter was pressed."""
@@ -88,7 +89,7 @@ def check_letter(pressed_letter):
 
 # --- Key Bindings & Initialization ---
 for letter in letter_list:
-    wn.onkeypress(partial(check_letter, letter)) #got rid of the .lower so its now case sensitive.
+    wn.onkeypress(partial(check_letter, letter), letter) #got rid of the .lower so its now case sensitive.
 
 # Start the game
 reset_apple(apple)
