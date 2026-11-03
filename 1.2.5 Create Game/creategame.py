@@ -73,7 +73,7 @@ score_writer.goto(-350, 330)
 counter = trtl.Turtle()
 counter.hideturtle()
 counter.penup()
-counter.goto(200, 330)
+counter.goto(180, 330)
 
 # --- Game Functions ---
 def draw_letter(apple, letter):
