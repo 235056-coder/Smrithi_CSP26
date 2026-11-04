@@ -117,3 +117,31 @@ def update_leaderboard(file_name, leader_names, leader_scores, player_name, play
 
     # close the leaderboard file
     leaderboard_file.close()
+
+
+#----- draw leaderboard on the screen -----
+
+def draw_leaderboard(leader_names, leader_scores, turtle_object):
+
+    # set up the font for the leaderboard
+    font_setup = ("Courier New", 10, "bold")
+
+    # clear anything the turtle has written before
+    turtle_object.clear()
+
+    # move the turtle to the starting position
+    turtle_object.penup()
+    turtle_object.goto(-200, 150)
+
+    # hide the turtle so it doesn't appear on the screen
+    turtle_object.hideturtle()
+
+    # go through the leaderboard one player at a time
+    for index in range(len(leader_names)):
+
+        # display the player's rank, name, and score
+        turtle_object.write(str(index + 1) + ". " + leader_names[index] + "     " + str(leader_scores[index]), font=font_setup)
+
+        # move down to the next line
+        turtle_object.goto(-200, turtle_object.ycor() - 40)
+
