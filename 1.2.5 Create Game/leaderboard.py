@@ -96,3 +96,10 @@ def update_leaderboard(file_name, leader_names, leader_scores, player_name, play
     # insert the new player's name and score at the correct position
     leader_names.insert(index, player_name)
     leader_scores.insert(index, player_score)
+
+    # checks if there are more than 5 players
+    if len(leader_names) > max_players:
+
+        # remove the last player from both lists so that only the top 5 remain
+        leader_names.pop()
+        leader_scores.pop()
