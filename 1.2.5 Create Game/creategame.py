@@ -53,6 +53,7 @@ wn.title ("Drop'em Apples")
 wn.setup(width=screen_width, height=screen_height)
 wn.addshape(apple_image)
 wn.bgpic(background_image)
+
 #add a timer here 30sec
 score = 0
 font_setup = ("Courier New", 30, "bold", )
@@ -96,8 +97,6 @@ def draw_letter(apple, letter):
     remember_position = apple.position()
     apple.setpos(apple.xcor() + apple_letter_x_offset, 
     apple.ycor() + apple_letter_y_offset)
-
-    
     apple.write(letter, font=("Courier New", 60, "bold"))
     apple.setpos(remember_position)
 
@@ -147,7 +146,6 @@ def update_score():
     score_writer.write("score: " + str(score), font=font_setup) #maybe i shouldnt add this if it doesnt look good. try bth versions and see wat fits better
 
 #manage leaderboard
-
 def manage_leaderboard():
 
     # get the current player names and scores from the leaderboard file
@@ -192,6 +190,8 @@ def countdown():
         counter.clear()
 
         # display the leaderboard background
+        #clear the screen and display the leaderboard image
+        wn.clear()
         wn.bgpic(leaderboard_image)
         
 
