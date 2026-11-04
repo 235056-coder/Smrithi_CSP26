@@ -103,3 +103,17 @@ def update_leaderboard(file_name, leader_names, leader_scores, player_name, play
         # remove the last player from both lists so that only the top 5 remain
         leader_names.pop()
         leader_scores.pop()
+
+    # opens the leaderboard file in write mode
+    # "w" will update the file with the new leaderboard information because of the previous steps
+    leaderboard_file = open(file_name, "w")
+
+    # go through each player in the leaderboard
+    for i in range(len(leader_names)):
+
+        # write the player's name and score into the file
+        # separate the name and score with a comma
+        leaderboard_file.write(leader_names[i] + "," + str(leader_scores[i]) + "\n")
+
+    # close the leaderboard file
+    leaderboard_file.close()
