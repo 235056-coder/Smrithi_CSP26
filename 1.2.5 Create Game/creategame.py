@@ -6,6 +6,7 @@
 import turtle as trtl
 import random as rand
 from functools import partial
+import leaderboard as lb
 
 # --- Configuration & Setup ---
 #size of the screen 
@@ -17,6 +18,9 @@ apple_image = "apple1.gif"
 
 #import a new image just for the title screen 
 startscreen_image = "titlescreen.gif"
+
+#import image for the leaderboard
+leaderboard_image = "leaderboard.gif"
 
 #how far the apple can fall to get the the position I want it to
 ground_height = -300
@@ -31,6 +35,9 @@ wn.setup(width=screen_width, height=screen_height)
 wn.addshape(apple_image)
 wn.bgpic(startscreen_image)
 wn.update()
+
+# leaderboard 
+leaderboard_file_name = "1.2.5_leaderboard.txt"
 
 #user puts in their name
 player_name = trtl.textinput("Name", "Enter your name")
@@ -62,6 +69,13 @@ apple = trtl.Turtle()
 apple.speed(8)
 apple.penup()
 current_letter = ""
+
+#create leaderboard turtle
+leaderboard_writer = trtl.Turtle()
+leaderboard_writer.speed(0)
+leaderboard_writer.color("white")
+leaderboard_writer.penup()
+leaderboard_writer.hideturtle()
 
 #have a score writr with the same text setteings as teh apple
 score_writer = trtl.Turtle()
@@ -115,7 +129,7 @@ def drop_apple():
     apple.goto(apple.xcor(), ground_height) #might need to play around with this a little more
     apple.clear()
     #add mmore code here to update the score when the apple is dropped
-
+    apple.clear()
     apple.hideturtle()
     wn.tracer(False) #again just turns the animation off so that the apple can reset without the player seeing all the movements
     reset_apple(apple)
@@ -132,6 +146,31 @@ def update_score():
     score_writer.clear()
     score_writer.write("score: " + str(score), font=font_setup) #maybe i shouldnt add this if it doesnt look good. try bth versions and see wat fits better
 
+#manage leaderboard
+
+def manage_leaderboard():
+
+    # get the current player names and scores from the leaderboard file
+    leader_names_list = lb.get_names(leaderboard_file_name)
+    leader_scores_list = lb.get_scores(leaderboard_file_name)
+    print(leader_names_list)
+    print(leader_scores_list)
+
+    # check if the player made the top 5
+    if len(leader_scores_list) < 5 or score >= leader_scores_list[4]:
+
+        # add the player's name and score to the leaderboard
+        lb.update_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list, player_name, score)
+
+        # display the updated leaderboard and congratulations message
+        lb.draw_leaderboard(True, leader_names_list, leader_scores_list, leaderboard_writer)
+        wn.update()
+
+    else:
+
+        # display the original leaderboard and better luck message
+        lb.draw_leaderboard(False, leader_names_list, leader_scores_list, leaderboard_writer)
+
 #def countdown timer here and when the times up, teh screen will clear and the final score will be dispayed with a messagesaying game over, and there should be a button that takes you to the leaderboar(more like a question maybe)
 def countdown():
     global timer, timer_up
@@ -139,14 +178,32 @@ def countdown():
     counter.clear()
 
     if timer <= 0:
-        counter.write("time's up!", font=font_setup)
         timer_up = True
+
+        # turn screen updates back on
+        wn.tracer(True)
+
+        # clear the apple letter and hide the apple
+        apple.clear()
         apple.hideturtle()
+
+        # clear the score and timer
+        score_writer.clear()
+        counter.clear()
+
+        # display the leaderboard background
+        wn.bgpic(leaderboard_image)
+        
+
+        # display the leaderboard
+        manage_leaderboard()
+        wn.update()
 
     else:
         counter.write("timer: " + str(timer), font=font_setup)
         timer -= 1
         wn.ontimer(countdown, counter_interval)
+
 #def start game function here that will start the game when the player clicks a button on the title screen, and then the title screen will clear and the game will start
 def start_game():
     wn.ontimer(countdown, counter_interval) #this hasnt really cleared the screen yet but that can worked on after the basic functionality
