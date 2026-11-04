@@ -75,3 +75,24 @@ def get_scores(file_name):
 
     # return the completed scores list
     return scores
+
+#----- update leaderboard with new player -----
+
+def update_leaderboard(file_name, leader_names, leader_scores, player_name, player_score):
+
+    # start at the end of the leaderboard
+    index = len(leader_scores)
+
+    # go through the existing scores to find where the new score belongs
+    for i in range(len(leader_scores)):
+
+        # check if the new score is higher than or equal to an existing score
+        if player_score >= leader_scores[i]:
+
+            # save the position where the new score belongs
+            index = i
+            break
+
+    # insert the new player's name and score at the correct position
+    leader_names.insert(index, player_name)
+    leader_scores.insert(index, player_score)
