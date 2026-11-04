@@ -1,4 +1,4 @@
-Kinglol, 28
-BooHoo, 23
-OutCast, 17
-Panda, 12
+Kinglol,28
+BooHoo,23
+OutCast,17
+Panda,12
