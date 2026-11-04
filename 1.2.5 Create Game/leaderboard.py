@@ -144,4 +144,21 @@ def draw_leaderboard(leader_names, leader_scores, turtle_object):
 
         # move down to the next line
         turtle_object.goto(-200, turtle_object.ycor() - 40)
+        
 
+def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object):
+        # move down a little before writing the message
+    turtle_object.goto(-200, turtle_object.ycor() - 30)
+
+    # check if the player made the leaderboard
+    if high_scorer:
+
+        # congratulate the player
+        turtle_object.write("CONGRATULATIONS!", font=font_setup)
+        turtle_object.goto(-200, turtle_object.ycor() - 30)
+        turtle_object.write("You made the leaderboard!", font=font_setup)
+
+    else:
+
+        # encourage the player to try again
+        turtle_object.write("Better luck next time!", font=font_setup)
